@@ -1,2 +1,6 @@
 gradio
 scikit-image
+Pillow
+torchkeras
+pathlib
+ultralytics
