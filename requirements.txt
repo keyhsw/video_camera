@@ -5,3 +5,4 @@ torchkeras
 pathlib
 ultralytics
 accelerate
+pandas 
