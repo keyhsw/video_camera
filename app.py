@@ -32,13 +32,13 @@ def detect(img):
     return vis
 
 with gr.Blocks() as demo:
-    gr.Markdown("# yolov8目标检测演示")
+    gr.Markdown("# ultralytics yolov8 Object detection demo")
 
-    with gr.Tab("捕捉摄像头喔"):
+    with gr.Tab("Webcam"):
         in_img = gr.Image(source='webcam',type='pil')
-        button = gr.Button("执行检测",variant="primary")
+        button = gr.Button("Run",variant="primary")
 
-        gr.Markdown("## 预测输出")
+        gr.Markdown("## Predicted Output")
         out_img = gr.Image(type='pil')
 
         button.click(detect,
@@ -46,36 +46,36 @@ with gr.Blocks() as demo:
                      outputs=out_img)
         
     
-    with gr.Tab("选择测试图片"):
+    with gr.Tab("Select image"):
         files = ['people.jpeg','coffee.jpeg','cat.jpeg']
         drop_down = gr.Dropdown(choices=files,value=files[0])
-        button = gr.Button("执行检测",variant="primary")
+        button = gr.Button("Run",variant="primary")
         
         
-        gr.Markdown("## 预测输出")
+        gr.Markdown("## Predicted Output")
         out_img = gr.Image(type='pil')
         
         button.click(detect,
                      inputs=drop_down, 
                      outputs=out_img)
         
-    with gr.Tab("输入图片链接"):
+    with gr.Tab("Enter image link"):
         default_url = 'https://t7.baidu.com/it/u=3601447414,1764260638&fm=193&f=GIF'
         url = gr.Textbox(value=default_url)
-        button = gr.Button("执行检测",variant="primary")
+        button = gr.Button("Run",variant="primary")
         
-        gr.Markdown("## 预测输出")
+        gr.Markdown("## Predicted Output")
         out_img = gr.Image(type='pil')
         
         button.click(detect,
                      inputs=url, 
                      outputs=out_img)
         
-    with gr.Tab("上传本地图片"):
+    with gr.Tab("Upload local image"):
         input_img = gr.Image(type='pil')
-        button = gr.Button("执行检测",variant="primary")
+        button = gr.Button("Run",variant="primary")
         
-        gr.Markdown("## 预测输出")
+        gr.Markdown("## Predicted Output")
         out_img = gr.Image(type='pil')
         
         button.click(detect,
